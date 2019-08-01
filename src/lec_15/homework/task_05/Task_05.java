@@ -6,4 +6,7 @@ package lec_15.homework.task_05;
  */
 
 public class Task_05 {
+	public static void main (String[] args) {
+		List<Cat> kennel = new ArrayList<>();
+	}
 }
