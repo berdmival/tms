@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<students>
+    <student group="111">
+        <firstName>Rakesh</firstName>
+        <lastName>Mishra</lastName>
+        <faculty>Bangalore</faculty>
+    </student>
+    <student group="112">
+        <firstName>John</firstName>
+        <lastName>Davis</lastName>
+        <faculty>Chennai</faculty>
+    </student>
+    <student group="113">
+        <firstName>Rajesh</firstName>
+        <lastName>Sharma</lastName>
+        <faculty>Pune</faculty>
+    </student>
+</students>
