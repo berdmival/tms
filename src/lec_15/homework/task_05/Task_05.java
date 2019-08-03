@@ -36,19 +36,19 @@ public class Task_05 {
 
         try (FileInputStream fileInputStream = new FileInputStream(SERIALIZED_LIST);
              ObjectInputStream streamForDeserializingList = new ObjectInputStream(fileInputStream)) {
-        	secondKennel = (List<Cat>) streamForDeserializingList.readObject();
+            secondKennel = (List<Cat>) streamForDeserializingList.readObject();
 
-        	secondKennel.forEach(Cat -> {
-        		if (Cat == null) System.out.println("secondKennel contains null");
-			});
+            secondKennel.forEach(Cat -> {
+                if (Cat == null) System.out.println("secondKennel contains null");
+            });
 
-			System.out.println("secondKennel = " + secondKennel);
+            System.out.println("secondKennel = " + secondKennel);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
+            e.printStackTrace();
+        }
+    }
 }
