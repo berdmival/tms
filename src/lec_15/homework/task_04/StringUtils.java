@@ -21,7 +21,7 @@ public class StringUtils
 				wordsFromText.add(matcher.group());
 			}
 		}
-
+// ненужная пустая строка
 		System.out.println(wordsFromText);
 	}
 
