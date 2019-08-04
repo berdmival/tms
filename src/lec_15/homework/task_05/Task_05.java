@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task_05 {
-
+// SERIALIZED_LIST - это не сам  лист, а путь к нему
     private static final String SERIALIZED_LIST = "./src/lec_15/homework/task_05/serializedList";
 
     public static void main(String[] args) {
