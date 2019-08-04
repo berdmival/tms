@@ -11,6 +11,7 @@ public class Task_01 {
     private static final String MESSAGE = "Hello, my name is %s. I'm %s developer and I'm glad to become a part of your company.";
 
     public static void main(String[] args) {
+        // возможно sourCe
         Scanner inputSourse = new Scanner(System.in);
 
         System.out.print("Enter your name: ");
@@ -20,6 +21,7 @@ public class Task_01 {
         String userProgramLanguage = inputSourse.next();
         System.out.println("Your message is: ");
 
+        // massage - это другое, message
         String massageString = String.format(MESSAGE, userName, userProgramLanguage);
         System.out.println(massageString);
     }
