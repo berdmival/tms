@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 public class StringUtils
 {
+	// метод, который называется find*** должен возвращать то, что он нашел
 	public static void findPalindroms(String textForInspect) {
 		SortedSet<String> wordsFromText = new TreeSet<>();
 
