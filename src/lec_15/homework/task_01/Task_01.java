@@ -12,17 +12,19 @@ public class Task_01 {
 
     public static void main(String[] args) {
         // возможно sourCe
-        Scanner inputSourse = new Scanner(System.in);
+        //исправил
+        Scanner inputSource = new Scanner(System.in);
 
         System.out.print("Enter your name: ");
-        String userName = inputSourse.next();
+        String userName = inputSource.next();
 
         System.out.print("Enter your programming language: ");
-        String userProgramLanguage = inputSourse.next();
+        String userProgramLanguage = inputSource.next();
         System.out.println("Your message is: ");
 
         // massage - это другое, message
-        String massageString = String.format(MESSAGE, userName, userProgramLanguage);
-        System.out.println(massageString);
+        //исправил
+        String messageString = String.format(MESSAGE, userName, userProgramLanguage);
+        System.out.println(messageString);
     }
 }
