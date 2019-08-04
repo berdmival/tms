@@ -11,27 +11,11 @@ public class Task_03 {
         HashMap<String, List<Integer>> firstMap = new HashMap<>();
         HashMap<String, List<Integer>> secondMap = new HashMap<>();
 
-        // вынеси эту логику в отдельный метод
-        for (int i = 1; i < 10; i++) {
-            List<Integer> tempList = new ArrayList<>();
-            for (int j = 1; j < 10; j++) {
-                tempList.add(i*j);
-            }
-
-            firstMap.put("key_"+i, tempList);
-        }
+        fillMap(firstMap, 1);
 
         System.out.println("firstMap = " + firstMap);
 
-        // у тебя циклы отличаются совсем незначительно. можно их объеденить в один, сохранив при этом логику заполнения обеих мап
-        for (int i = 1; i < 10; i++) {
-            List<Integer> tempList = new ArrayList<>();
-            for (int j = 1; j < 10; j++) {
-                tempList.add(i*j*10);
-            }
-
-            secondMap.put("key_"+i, tempList);
-        }
+        fillMap(secondMap, 10);
 
         System.out.println("secondMap = " + secondMap);
 
@@ -43,5 +27,16 @@ public class Task_03 {
                 }));
 
         System.out.println("resultMap = " + firstMap);
+    }
+
+    private static void fillMap(HashMap<String, List<Integer>> filledMap, int multiplier) {
+        for (int i = 1; i < 10; i++) {
+            List<Integer> tempList = new ArrayList<>();
+            for (int j = 1; j < 10; j++) {
+                tempList.add(i * j * multiplier);
+            }
+
+            filledMap.put("key_" + i, tempList);
+        }
     }
 }

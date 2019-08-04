@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task_05 {
-// SERIALIZED_LIST - это не сам  лист, а путь к нему
-    private static final String SERIALIZED_LIST = "./src/lec_15/homework/task_05/serializedList";
+    private static final String FILE_FOR_SERIALIZED_LIST = "./src/lec_15/homework/task_05/serializedList.cats";
 
     public static void main(String[] args) {
         List<Cat> kennel = new ArrayList<>();
@@ -22,7 +21,7 @@ public class Task_05 {
 
         System.out.println("kennel = " + kennel);
 
-        try (FileOutputStream fileOutputStream = new FileOutputStream(SERIALIZED_LIST);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(FILE_FOR_SERIALIZED_LIST);
              ObjectOutputStream streamForSerializingList = new ObjectOutputStream(fileOutputStream)) {
             streamForSerializingList.writeObject(kennel);
             streamForSerializingList.flush();
@@ -34,7 +33,7 @@ public class Task_05 {
 
         List<Cat> secondKennel = new ArrayList<>();
 
-        try (FileInputStream fileInputStream = new FileInputStream(SERIALIZED_LIST);
+        try (FileInputStream fileInputStream = new FileInputStream(FILE_FOR_SERIALIZED_LIST);
              ObjectInputStream streamForDeserializingList = new ObjectInputStream(fileInputStream)) {
             secondKennel = (List<Cat>) streamForDeserializingList.readObject();
 

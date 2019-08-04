@@ -10,31 +10,21 @@ package lec_15.homework.task_04;
 import java.io.*;
 
 public class Task_04 {
-    private static final String SOURCE_TEXT_FILE = "./src/lec_15/homework/task_04/source_text";
+    private static final String SOURCE_TEXT_FILE = "./src/lec_15/homework/task_04/source_text.txt";
 
     public static void main(String[] args) {
-        StringBuilder sourceText = new StringBuilder();
-
         try (FileReader inputFile = new FileReader(SOURCE_TEXT_FILE);
              BufferedReader inputFileBuffer = new BufferedReader(inputFile)) {
 
             String readingLine;
 
-            // ты весь файл выгружаешь в память, так делать не стоит
             while ((readingLine = inputFileBuffer.readLine()) != null) {
-                sourceText.append(readingLine).append("\n");
+                StringUtils.showPalindroms(readingLine);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        // блок finally предназначен для закрытия ресурсов. Он не предназначен для бизнес логики
-        finally {
-            if (sourceText != null) {
-                StringUtils.findPalindroms(sourceText.toString());
-            }
         }
     }
 }
