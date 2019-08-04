@@ -20,6 +20,7 @@ public class Task_04 {
 
             String readingLine;
 
+            // ты весь файл выгружаешь в память, так делать не стоит
             while ((readingLine = inputFileBuffer.readLine()) != null) {
                 sourceText.append(readingLine).append("\n");
             }
@@ -29,6 +30,7 @@ public class Task_04 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // блок finally предназначен для закрытия ресурсов. Он не предназначен для бизнес логики
         finally {
             if (sourceText != null) {
                 StringUtils.findPalindroms(sourceText.toString());
