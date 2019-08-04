@@ -1,0 +1,16 @@
+{
+  "group": "2",
+  "firstname": "Dmitry",
+  "lastname": "Berestovsky",
+  "faculty": "POIT",
+  "favorites": [
+    {
+      "subject": "programming",
+      "priority": 1
+    },
+    {
+      "subject": "physics",
+      "priority": 2
+    }
+  ]
+}

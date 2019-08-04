@@ -1,0 +1,16 @@
+{
+  "group": "3",
+  "firstname": "Ivan",
+  "lastname": "Ivanov",
+  "faculty": "Gumanitary",
+  "favorites": [
+    {
+      "subject": "Russian",
+      "priority": 1
+    },
+    {
+      "subject": "English",
+      "priority": 2
+    }
+  ]
+}
