@@ -7,6 +7,7 @@ package lec_15.homework.task_02;
 import java.io.*;
 
 public class Task_02 {
+    // у файла должно быть расширение, переименуй оба файла
     private static final String READ_FILE_PATH = "./src/lec_15/homework/task_02/test_read";
     private static final String WRITE_FILE_PATH = "./src/lec_15/homework/task_02/test_write";
     private static final String TEST_PHRASE = "pancakes";
@@ -25,12 +26,13 @@ public class Task_02 {
                     outputFileBuffer.flush();
                 }
             }
-
+// зачем здесь пустая строка?
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // блок finally не для этого, печатай за пределами try/catch
         finally {
             System.out.println("Work with files completed!");
         }
