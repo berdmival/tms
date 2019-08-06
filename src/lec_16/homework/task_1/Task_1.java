@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+// выноси большие куски в отдельные методы и тогда не нужно будет писать комментарий типа '//Parsing xml by DOM-parser'
+// комментарии устаревают, за ними мало кто следит. А вот по названию метода сразу понятно будет что и как
 public class Task_1 {
 
     private static final String inputXMLFilePath = "xml/university.xml";
