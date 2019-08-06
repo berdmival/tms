@@ -9,6 +9,7 @@ import java.util.List;
 
 public class SAXHandler extends DefaultHandler {
     private List<Student> studentList = new ArrayList<>();
+    // = null не обязательно
     private Student student = null;
     private String content = null;
 
@@ -28,7 +29,7 @@ public class SAXHandler extends DefaultHandler {
             case "student":
                 studentList.add(student);
                 break;
-
+// лишний пробел
             case "firstName":
                 student.setFirstName(content);
                 break;
