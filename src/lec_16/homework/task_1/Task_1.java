@@ -17,14 +17,11 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-// выноси большие куски в отдельные методы и тогда не нужно будет писать комментарий типа '//Parsing xml by DOM-parser'
-// комментарии устаревают, за ними мало кто следит. А вот по названию метода сразу понятно будет что и как
 public class Task_1 {
 
     private static final String inputXMLFilePath = "xml/university.xml";
 
     public static void main(String[] args) {
-        //Parsing xml by DOM-parser
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
@@ -63,13 +60,10 @@ public class Task_1 {
                             }
                         }
                     }
-
                     universityDOM.add(student);
                 }
             }
-
             System.out.println("University list after DOM parsing");
-
             universityDOM.forEach(student -> System.out.println(student));
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -78,8 +72,7 @@ public class Task_1 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        //Parsing xml by SAX-parser
+		
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser saxParser = saxParserFactory.newSAXParser();
