@@ -22,6 +22,34 @@ public class Task_1 {
     private static final String inputXMLFilePath = "xml/university.xml";
 
     public static void main(String[] args) {
+        studentsDOMParsing();
+        studentsSAXParsing();
+    }
+
+    private static void studentsSAXParsing() {
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+        try {
+            SAXParser saxParser = saxParserFactory.newSAXParser();
+            SAXHandler saxHandler = new SAXHandler();
+
+            InputStream resource = ClassLoader.getSystemResourceAsStream(inputXMLFilePath);
+            saxParser.parse(resource, saxHandler);
+
+            List<Student> universitySAX = saxHandler.getStudentList();
+
+            System.out.println("University list after SAX parsing");
+
+            universitySAX.forEach(student -> System.out.println(student));
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void studentsDOMParsing() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
@@ -65,27 +93,6 @@ public class Task_1 {
             }
             System.out.println("University list after DOM parsing");
             universityDOM.forEach(student -> System.out.println(student));
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-		
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        try {
-            SAXParser saxParser = saxParserFactory.newSAXParser();
-            SAXHandler saxHandler = new SAXHandler();
-
-            InputStream resource = ClassLoader.getSystemResourceAsStream(inputXMLFilePath);
-            saxParser.parse(resource, saxHandler);
-
-            List<Student> universityJSON = saxHandler.getStudentList();
-
-            System.out.println("University list after SAX parsing");
-
-            universityJSON.forEach(student -> System.out.println(student));
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
