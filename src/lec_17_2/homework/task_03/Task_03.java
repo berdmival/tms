@@ -1,5 +1,6 @@
 package lec_17_2.homework.task_03;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -13,28 +14,28 @@ public class Task_03 {
         String inputString = inputNumber.next();
         Integer numberForCountingFactorial = Integer.parseInt(inputString);
 
-        int firstPartOfNumberForCountingFactorial = numberForCountingFactorial/2;
-        int secondPartOfNumberForCountingFactorial = numberForCountingFactorial - firstPartOfNumberForCountingFactorial;
+        int firstPartOfNumberForCountingFactorial = numberForCountingFactorial / 2;
 
         FactorialCounter factorialCounterFirstPart = new FactorialCounter(firstPartOfNumberForCountingFactorial);
-        FactorialCounter factorialCounterSecondPart = new FactorialCounter(secondPartOfNumberForCountingFactorial);
+        FactorialCounter factorialCounterSecondPart = new FactorialCounter(firstPartOfNumberForCountingFactorial + 1,
+                numberForCountingFactorial);
 
         ExecutorService executorService = Executors.newFixedThreadPool(6);
 
-        Long factorial = 1L;
+        BigInteger factorial = BigInteger.ONE;
 
-        Future<Long> firstPartOfFactorialThread = executorService.submit(factorialCounterFirstPart);
+        Future<BigInteger> firstPartOfFactorialThread = executorService.submit(factorialCounterFirstPart);
         try {
-            factorial *= firstPartOfFactorialThread.get();
+            factorial = factorial.multiply(firstPartOfFactorialThread.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-        Future<Long> secondPartOfFactorialThread = executorService.submit(factorialCounterSecondPart);
+        Future<BigInteger> secondPartOfFactorialThread = executorService.submit(factorialCounterSecondPart);
         try {
-            factorial *= secondPartOfFactorialThread.get();
+            factorial = factorial.multiply(secondPartOfFactorialThread.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
