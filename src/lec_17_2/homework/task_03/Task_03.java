@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 public class Task_03 {
     public static void main(String[] args) {
         Scanner inputNumber = new Scanner(System.in);
-        System.out.println("Enter the number of counting factoral: ");
+        System.out.println("Enter the number of counting factorial: ");
         String inputString = inputNumber.next();
         Integer numberForCountingFactorial = Integer.parseInt(inputString);
 
