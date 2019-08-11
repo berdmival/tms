@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 public class Task_03 {
     public static void main(String[] args) {
         Scanner inputNumber = new Scanner(System.in);
-        System.out.println("Enter the number fof counting factoral: ");
+        System.out.println("Enter the number of counting factoral: ");
         String inputString = inputNumber.next();
         Integer numberForCountingFactorial = Integer.parseInt(inputString);
 
@@ -19,7 +19,7 @@ public class Task_03 {
         FactorialCounter factorialCounterFirstPart = new FactorialCounter(firstPartOfNumberForCountingFactorial);
         FactorialCounter factorialCounterSecondPart = new FactorialCounter(secondPartOfNumberForCountingFactorial);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(6);
 
         Long factorial = 1L;
 
