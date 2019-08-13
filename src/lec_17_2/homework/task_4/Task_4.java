@@ -37,7 +37,7 @@ public class Task_4 {
             }
         }
 
-        System.out.printf("\nNumber of files for analysis is \n", numberOfFiles);
+        System.out.printf("\nNumber of files for analysis is %d\n", numberOfFiles);
     }
 
     private static void extractFilePaths() {
