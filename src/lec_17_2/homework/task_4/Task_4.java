@@ -11,7 +11,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Task_4 {
-    private static final String FILE_WITH_WORKING_PATHS = "";
+    private static final String FILE_WITH_WORKING_PATHS = "./src/lec_17_2/homework/task_4/working_paths.txt";
     private static ArrayList<String> workingFilePaths = new ArrayList<>();
     private static int numberOfFiles;
 
