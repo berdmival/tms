@@ -26,16 +26,13 @@ public class Task_2_3 {
     private static final String STUDENTS_ACCUMULATE_JSON = "./resources/json/students/all_students.json";
 
     public static void main(String[] args) {
-        //Comparator for sorting by firstname and lastname
         Comparator<Student> studentComparator = ((Comparator<Student>) (a, b) -> a.getLastName().compareTo(b.getLastName()))
                 .thenComparing((a, b) -> a.getFirstName().compareTo(b.getFirstName()));
 
-        //TreeSet for accumulating and automatic sorting students
         TreeSet<Student> students = new TreeSet(studentComparator);
 
         File studentsDirectory = new File(STUDENTS_DIRECTORY);
 
-        //array of json-files with each student
         File[] listOfJSONStudents = studentsDirectory.listFiles((dir, name) -> (name.toLowerCase().endsWith(".json")));
 
         ObjectMapper mapper = new ObjectMapper();
