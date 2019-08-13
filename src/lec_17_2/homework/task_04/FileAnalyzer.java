@@ -1,4 +1,4 @@
-package lec_17_2.homework.task_4;
+package lec_17_2.homework.task_04;
 
 import java.io.*;
 import java.util.ArrayList;
