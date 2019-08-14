@@ -14,9 +14,9 @@ public class Task_06 {
         String currentDirectory = args[0];
 
         try {
-            Files.createDirectory(Paths.get(currentDirectory+"./1"));
-            Files.createDirectory(Paths.get(currentDirectory+"./2"));
-            Files.createDirectory(Paths.get(currentDirectory+"./3"));
+            Files.createDirectory(Paths.get(currentDirectory + "./1"));
+            Files.createDirectory(Paths.get(currentDirectory + "./2"));
+            Files.createDirectory(Paths.get(currentDirectory + "./3"));
         } catch (IOException e) {
             e.printStackTrace();
         }

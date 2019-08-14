@@ -6,12 +6,10 @@ package lec_15.homework.task_08;
  * Для каждой ветки при ее создании можно задать кол-во фруктов, а если не задавать - то рандом.
  * Есть 3 обезьяны, одна умеет считать кокосы, вторая бананы, а третья - и кокосы и бананы.
  * Есть класс - MonkeyManager, в котором есть метод - попросить любую обезьяну посчитать фрукты на дереве
-*/
+ */
 
-public class Task_08
-{
-	public static void main(String[] args)
-	{
-		
-	}
+public class Task_08 {
+    public static void main(String[] args) {
+
+    }
 }
