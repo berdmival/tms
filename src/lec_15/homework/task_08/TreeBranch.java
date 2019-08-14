@@ -4,23 +4,25 @@ import java.util.*;
 
 public class TreeBranch
 {
-	private TreeSet<TreeBranch> childBranches;
+	private ArrayList<TreeBranch> childBranches;
 	private int numberOfBananas;
 	private int numberOfCoconuts;
 	
-	private static final int MAX_NUMBER_OF_FRUITS = 10;
+	private static final int MAX_RANDOM_NUMBER_OF_FRUITS = 10;
 
-	public TreeBranch(TreeSet<TreeBranch> childBranches, int numberOfBananas, int numberOfCoconuts)
+	public TreeBranch(int numberOfBananas, int numberOfCoconuts, ArrayList<TreeBranch> childBranches)
 	{
 		this.childBranches = childBranches;
 		this.numberOfBananas = numberOfBananas;
 		this.numberOfCoconuts = numberOfCoconuts;
 	}
 	
-	public TreeBranch(TreeSet<TreeBranch> childBranches)
+	public TreeBranch(ArrayList<TreeBranch> childBranches)
 	{
-		this(childBranches, (int)(Math.random()*MAX_NUMBER_OF_FRUITS), (int)(Math.random()*MAX_NUMBER_OF_FRUITS));
+		this((int)(Math.random()* MAX_RANDOM_NUMBER_OF_FRUITS), (int)(Math.random()* MAX_RANDOM_NUMBER_OF_FRUITS), childBranches);
 	}
+
+	public TreeBranch () { this(null); }
 
 	public void setNumberOfCoconuts(int numberOfCoconuts)
 	{
@@ -42,12 +44,12 @@ public class TreeBranch
 		return numberOfBananas;
 	}
 
-	public void setChildBranches(TreeSet<TreeBranch> childBranches)
+	public void setChildBranches(ArrayList<TreeBranch> childBranches)
 	{
 		this.childBranches = childBranches;
 	}
 
-	public TreeSet<TreeBranch> getChildBranches()
+	public ArrayList<TreeBranch> getChildBranches()
 	{
 		return childBranches;
 	}

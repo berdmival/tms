@@ -1,0 +1,69 @@
+Task 1
+Создать класс, который в цикле выводит на экран числа от 0-10, запустить его в отдельном потоке
+
+Task 2
+Создать класс, который в цикле выводит на экран числа от 0-20 и в каждой итерации цикла засыпает на 1 секунду,
+запустить его экземпляр и запустить в отдельном потоке. Поток main должен дождаться окончания работы дочернего потока
+и затем вывести на экран сообщение о том, что главный поток завершен
+
+Task 3
+Есть магазин игрушек, в который несколько поставщиков (потоков) доставляют товар. Вам необходимо доставить в магазин игрушки
+(например 100 от одного поставщика и 50 от другого и затем вывести на экран все игрушки, которые сейчас в магазине
+
+Task 4
+Нужно поправить ошибки в коде, чтобы метод мейн нормально запустился.
+Копируете себе код и исправляете, пока не будет компилироваться
+
+public static void main(String[] args) {
+        LinkedList<String> words = new ArrayList<>();
+        words.add("Pineapple");
+        words.add("Cherry");
+        words.add(Banana);
+    }
+
+Task 5
+Нужно поправить ошибки в коде, чтобы метод мейн нормально запустился.
+Перед тем, как копировать этот код, создайте сами класс CodeRefactor, затем скопируйте в него метод main
+Затем класс Website и enum.
+Копируйте аккуратно и не внутрь класса CodeRefactor, а рядом с ним.
+
+
+public class CodeRefactor {
+    public static void main(String[] args) {
+        Website website = new WebSite("http://www.onliner.by");
+
+        String url = Website.getUrl();
+        WebsiteType type = website.getType();
+
+        System.out.println(url);
+        System.out.println(type);
+    }
+}
+
+class Website {
+    private String url;
+    private WebsiteType type;
+
+    public Website(String ur1) {
+        super(url, WebsiteType.NEWS);
+    }
+
+    public static Website(String url, WebsiteType type) {
+        this.url = url;
+        this.type = type;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public WebsiteType getType() {
+        return type;
+    }
+}
+
+enum WebsiteType {
+    NEWS,
+    MUSIC,
+    EDUCATION
+}

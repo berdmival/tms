@@ -8,7 +8,7 @@ package lec_15.homework.task_08;
  * Есть класс - MonkeyManager, в котором есть метод - попросить любую обезьяну посчитать фрукты на дереве
 */
 
-public class Main
+public class Task_08
 {
 	public static void main(String[] args)
 	{
