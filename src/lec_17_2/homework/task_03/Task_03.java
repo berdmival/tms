@@ -20,10 +20,17 @@ public class Task_03 {
         FactorialCounter factorialCounterSecondPart = new FactorialCounter(firstPartOfNumberForCountingFactorial + 1,
                 numberForCountingFactorial);
 
+        // newFixedThreadPool(6) - зачем тебе 6, когда считаешь в 2 потока?
         ExecutorService executorService = Executors.newFixedThreadPool(6);
 
         BigInteger factorial = BigInteger.ONE;
 
+        /* firstPartOfFactorialThread.get() - метод get() блокирующий, т.е. главный поток будет ждать, пока get()
+        не вернет результат, т.е. твой второй поток не будет запущен.
+        Поэтому создаешь лист List<Future<BigInteger>> и добавляешь туда 
+        executorService.submit(factorialCounterFirstPart)
+        затем бежишь по этому листу, у каждого элемента вызываешь метод get() и перемноаешь результат
+        */
         Future<BigInteger> firstPartOfFactorialThread = executorService.submit(factorialCounterFirstPart);
         try {
             factorial = factorial.multiply(firstPartOfFactorialThread.get());

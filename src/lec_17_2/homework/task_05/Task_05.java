@@ -26,6 +26,13 @@ public class Task_05 {
         students.add(new Student("Sanya").addFavoriteBook(new Book("Book5", 1900)));
         students.add(new Student("Sanya").addFavoriteBook(new Book("Book3", 2000)));
 
+        /*
+        Map<String, Long> collect = students.stream()
+                .flatMap(student -> student.getFavoriteBooks().stream())
+                .collect(Collectors.groupingBy(Book::getBookName, Collectors.counting()));
+        
+        поищи сам как красиво отсортировать, можно поменять местами ключ и значение, чтобы сортировать по ключу (кол-ву книг)
+        */
         students.stream()
                 .flatMap(student -> student.getFavoriteBooks().stream())
                 .collect(Collectors.groupingBy(Book::getBookName))

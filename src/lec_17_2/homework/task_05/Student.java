@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Student {
     private String name;
+    // private List<Book> favoriteBooks;
     private ArrayList<Book> favoriteBooks = new ArrayList<>();
 
     public String getName() {
@@ -31,6 +32,7 @@ public class Student {
         return this;
     }
 
+    // конструктор идет сразу после полей класса
     public Student(String name, ArrayList<Book> favoriteBooks) {
         this.name = name;
         this.favoriteBooks = favoriteBooks;
