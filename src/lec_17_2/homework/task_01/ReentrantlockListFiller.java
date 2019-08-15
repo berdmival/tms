@@ -14,10 +14,9 @@ public class ReentrantlockListFiller {
         this.fillLimit = fillLimit;
     }
 
-    // в метод fillList() лучше добавить аргумент, который будешь добавлять в лист 
-    public void fillList () {
+    public void fillList (Integer addValue) {
         locker.lock();
-        integerList.add((int)(Math.random()*fillLimit));
+        integerList.add(addValue);
         locker.unlock();
     }
 
