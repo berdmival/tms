@@ -12,11 +12,11 @@ public class MonkeyManager {
         return calculateFruits(branchForAnalysis).get("bananas");
     }
 
-    public HashMap<String, Integer> coconutAndBananasMonkey(TreeBranch branchForAnalysis) {
+    public HashMap<String, Integer> coconutAndBananasMapMonkey(TreeBranch branchForAnalysis) {
         return calculateFruits(branchForAnalysis);
     }
 
-    public HashMap<String, Integer> calculateFruits(TreeBranch branchForAnalysis) {
+    private HashMap<String, Integer> calculateFruits(TreeBranch branchForAnalysis) {
         HashMap<String, Integer> hashMapOfCountsOfFruits = new HashMap<>();
         hashMapOfCountsOfFruits.put("coconuts", 0);
         hashMapOfCountsOfFruits.put("bananas", 0);
