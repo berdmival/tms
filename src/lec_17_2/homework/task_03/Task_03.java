@@ -20,6 +20,7 @@ public class Task_03 {
         FactorialCounter factorialCounterSecondPart = new FactorialCounter(firstPartOfNumberForCountingFactorial + 1,
                 numberForCountingFactorial);
 
+        // newFixedThreadPool(6) - зачем тебе 6, когда считаешь в 2 потока?
         ExecutorService executorService = Executors.newFixedThreadPool(6);
 
         BigInteger factorial = BigInteger.ONE;
