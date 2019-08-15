@@ -16,6 +16,7 @@ public class Task_01 {
             }
         };
 
+        // ты добавляешь элементы, используя один поток, а надо было запустить несколько 
         Thread listFillerThread = new Thread(runnable);
         listFillerThread.start();
         try {
