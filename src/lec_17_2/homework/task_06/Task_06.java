@@ -14,6 +14,8 @@ public class Task_06 {
         String currentDirectory = args[0];
 
         try {
+            // раз под папки - это цифры, то стоит подумать и цикле
+            // если программу перезапустить, то не будет исключения FileAlreadyExists?
             Files.createDirectory(Paths.get(currentDirectory + "./1"));
             Files.createDirectory(Paths.get(currentDirectory + "./2"));
             Files.createDirectory(Paths.get(currentDirectory + "./3"));
