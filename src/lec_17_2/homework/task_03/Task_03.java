@@ -25,6 +25,12 @@ public class Task_03 {
 
         BigInteger factorial = BigInteger.ONE;
 
+        /* firstPartOfFactorialThread.get() - метод get() блокирующий, т.е. главный поток будет ждать, пока get()
+        не вернет результат, т.е. твой второй поток не будет запущен.
+        Поэтому создаешь лист List<Future<BigInteger>> и добавляешь туда 
+        executorService.submit(factorialCounterFirstPart)
+        затем бежишь по этому листу, у каждого элемента вызываешь метод get() и перемноаешь результат
+        */
         Future<BigInteger> firstPartOfFactorialThread = executorService.submit(factorialCounterFirstPart);
         try {
             factorial = factorial.multiply(firstPartOfFactorialThread.get());
