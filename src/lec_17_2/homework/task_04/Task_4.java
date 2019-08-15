@@ -42,6 +42,7 @@ public class Task_4 {
         System.out.printf("\nNumber of files for analysis is %d\n", numberOfFiles);
     }
 
+    // название extract говорит о том, что метод что-то должен возвращать
     private static void extractFilePaths() {
         try (FileReader fileReader = new FileReader(FILE_WITH_WORKING_PATHS);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
