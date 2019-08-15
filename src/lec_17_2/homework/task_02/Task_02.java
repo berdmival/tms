@@ -10,8 +10,10 @@ public class Task_02 {
     public static void main(String[] args) {
         List<Integer> listForFilling = new ArrayList<>();
 
+       // ты мог просто переиспользовать класс из предыдущей задачи. Так было бы лучше + у тебя в этом же пакете еще один класс
         fillIntList(listForFilling);
 
+        //mapToInt(Integer::intValue)
         OptionalDouble average = listForFilling.stream().mapToInt(e -> e).average();
 
         System.out.println("average = " + average.getAsDouble());
