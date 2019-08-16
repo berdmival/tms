@@ -10,6 +10,13 @@ package lec_15.homework.task_08;
 
 public class Task_08 {
     public static void main(String[] args) {
+        TreeBranch mainTree = new TreeBranch();
+        mainTree.addBranch(new TreeBranch(7, 18));
+        System.out.println("mainTree = " + mainTree);
 
+        MonkeyManager monkeyManager = new MonkeyManager();
+        System.out.println("bananas: " + monkeyManager.bananasMonkey(mainTree));
+        System.out.println("coconuts: " + monkeyManager.coconutMonkey(mainTree));
+        System.out.println(monkeyManager.coconutAndBananasMapMonkey(mainTree));
     }
 }

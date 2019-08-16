@@ -2,6 +2,7 @@ package lec_15.homework.task_08;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TreeBranch {
     private ArrayList<TreeBranch> childBranches;
@@ -16,9 +17,13 @@ public class TreeBranch {
         this.numberOfCoconuts = numberOfCoconuts;
     }
 
+    public TreeBranch(int numberOfBananas, int numberOfCoconuts) {
+        this(numberOfBananas, numberOfCoconuts, null);
+    }
+
     public TreeBranch(ArrayList<TreeBranch> childBranches) {
-        this((int) (Math.random() * MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH),
-                (int) (Math.random() * MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH),
+        this(new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1),
+                new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1),
                 childBranches);
     }
 
@@ -48,5 +53,23 @@ public class TreeBranch {
 
     public ArrayList<TreeBranch> getChildBranches() {
         return childBranches;
+    }
+
+    public void addBranch(TreeBranch branch) {
+        if (this.childBranches != null) {
+            this.childBranches.add(branch);
+        } else {
+            this.childBranches = new ArrayList<>();
+            this.childBranches.add(branch);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "TreeBranch{" +
+                "childBranches=" + childBranches +
+                ", numberOfBananas=" + numberOfBananas +
+                ", numberOfCoconuts=" + numberOfCoconuts +
+                '}';
     }
 }
