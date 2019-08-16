@@ -11,14 +11,11 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Task_4 {
-    private static final String FILE_WITH_WORKING_PATHS = "./src/lec_17_2/homework/task_4/working_paths.txt";
-    private static ArrayList<String> workingFilePaths = new ArrayList<>();
-    
-    // это обычная локальная переменная, а не поле
-    private static int numberOfFiles;
+    private static final String FILE_WITH_WORKING_PATHS = "./src/lec_17_2/homework/task_04/working_paths.txt";
 
     public static void main(String[] args) {
-        extractFilePaths();
+        ArrayList<String> workingFilePaths = extractFilePaths(FILE_WITH_WORKING_PATHS);
+        int numberOfFiles = 0;
 
         for (String workingDirectoryPath : workingFilePaths) {
             File workingDirectory = new File(workingDirectoryPath);
@@ -42,9 +39,10 @@ public class Task_4 {
         System.out.printf("\nNumber of files for analysis is %d\n", numberOfFiles);
     }
 
-    // название extract говорит о том, что метод что-то должен возвращать
-    private static void extractFilePaths() {
-        try (FileReader fileReader = new FileReader(FILE_WITH_WORKING_PATHS);
+    private static ArrayList<String> extractFilePaths(String filePath) {
+        ArrayList<String> workingFilePaths = new ArrayList<>();
+
+        try (FileReader fileReader = new FileReader(filePath);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
             String readingLine;
 
@@ -56,5 +54,7 @@ public class Task_4 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return workingFilePaths;
     }
 }
