@@ -9,7 +9,8 @@ public class TreeBranch {
     private int numberOfBananas;
     private int numberOfCoconuts;
 
-    private static final int MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH = 10;
+    private static final int MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH = 100;
+    private static final int MIN_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH = 2;
 
     public TreeBranch(int numberOfBananas, int numberOfCoconuts, ArrayList<TreeBranch> childBranches) {
         this.childBranches = childBranches;
@@ -22,8 +23,12 @@ public class TreeBranch {
     }
 
     public TreeBranch(ArrayList<TreeBranch> childBranches) {
-        this(new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1),
-                new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1),
+        this(new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1
+                        - MIN_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH)
+                        + MIN_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH,
+                new Random().nextInt(MAX_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH + 1
+                        - MIN_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH)
+                        + MIN_RANDOM_NUMBER_OF_EACH_TYPE_OF_FRUIT_ON_BRANCH,
                 childBranches);
     }
 
