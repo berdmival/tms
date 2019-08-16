@@ -1,6 +1,8 @@
 package lec_17_2.homework.task_03;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -20,33 +22,22 @@ public class Task_03 {
         FactorialCounter factorialCounterSecondPart = new FactorialCounter(firstPartOfNumberForCountingFactorial + 1,
                 numberForCountingFactorial);
 
-        // newFixedThreadPool(6) - зачем тебе 6, когда считаешь в 2 потока?
-        ExecutorService executorService = Executors.newFixedThreadPool(6);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         BigInteger factorial = BigInteger.ONE;
 
-        /* firstPartOfFactorialThread.get() - метод get() блокирующий, т.е. главный поток будет ждать, пока get()
-        не вернет результат, т.е. твой второй поток не будет запущен.
-        Поэтому создаешь лист List<Future<BigInteger>> и добавляешь туда 
-        executorService.submit(factorialCounterFirstPart)
-        затем бежишь по этому листу, у каждого элемента вызываешь метод get() и перемноаешь результат
-        */
-        Future<BigInteger> firstPartOfFactorialThread = executorService.submit(factorialCounterFirstPart);
-        try {
-            factorial = factorial.multiply(firstPartOfFactorialThread.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        List<Future<BigInteger>> threadsToCalculeteFactorial = new ArrayList<>();
+        threadsToCalculeteFactorial.add(executorService.submit(factorialCounterFirstPart));
+        threadsToCalculeteFactorial.add(executorService.submit(factorialCounterSecondPart));
 
-        Future<BigInteger> secondPartOfFactorialThread = executorService.submit(factorialCounterSecondPart);
-        try {
-            factorial = factorial.multiply(secondPartOfFactorialThread.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        for (Future<BigInteger> bigIntegerFuture : threadsToCalculeteFactorial) {
+            try {
+                factorial = factorial.multiply(bigIntegerFuture.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
         }
 
         System.out.println("factorial = " + factorial);
