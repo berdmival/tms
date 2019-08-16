@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class Task_05 {
     public static void main(String[] args) {
         ArrayList<Student> students = new ArrayList<>();
-        TreeMap<Integer, String> sortedFaworiteBooks = new TreeMap<>(Collections.reverseOrder());
 
         students.add(new Student("Vasya").addFavoriteBook(new Book("Book1", 1992)));
         students.add(new Student("Dmitry").addFavoriteBook(new Book("Book1", 1992)));
@@ -26,29 +25,17 @@ public class Task_05 {
         students.add(new Student("Sanya").addFavoriteBook(new Book("Book5", 1900)));
         students.add(new Student("Sanya").addFavoriteBook(new Book("Book3", 2000)));
 
-        /*
-        Map<String, Long> collect = students.stream()
-                .flatMap(student -> student.getFavoriteBooks().stream())
-                .collect(Collectors.groupingBy(Book::getBookName, Collectors.counting()));
-        
-        поищи сам как красиво отсортировать, можно поменять местами ключ и значение, чтобы сортировать по ключу (кол-ву книг)
-        */
         students.stream()
                 .flatMap(student -> student.getFavoriteBooks().stream())
-                .collect(Collectors.groupingBy(Book::getBookName))
-                .forEach((name, list) -> sortedFaworiteBooks.put(list.size(), name));
-
-        sortedFaworiteBooks.entrySet().stream()
-                .limit(3)
-                .collect(TreeMap::new, (m, e) -> m.put(e.getKey(), e.getValue()), Map::putAll)
+                .collect(Collectors.groupingBy(Book::getBookName, Collectors.counting()))
                 .entrySet().stream()
-                .sorted(new Comparator<Map.Entry<Object, Object>>() {
+                .sorted(new Comparator<Map.Entry<String, Long>>() {
                     @Override
-                    public int compare(Map.Entry<Object, Object> o1, Map.Entry<Object, Object> o2) {
-
-                        return (Integer) o2.getKey() - (Integer) o1.getKey();
+                    public int compare(Map.Entry<String, Long> o1, Map.Entry<String, Long> o2) {
+                        return (int) (o2.getValue() - o1.getValue());
                     }
                 })
+                .limit(3)
                 .forEach(System.out::println);
     }
 }
