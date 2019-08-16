@@ -10,17 +10,27 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Task_06 {
-    public static void main(String[] args) {
-        String currentDirectory = args[0];
+    private static final int NUMBER_OF_CREATED_FOLDERS = 3;
 
-        try {
-            // раз под папки - это цифры, то стоит подумать и цикле
-            // если программу перезапустить, то не будет исключения FileAlreadyExists?
-            Files.createDirectory(Paths.get(currentDirectory + "./1"));
-            Files.createDirectory(Paths.get(currentDirectory + "./2"));
-            Files.createDirectory(Paths.get(currentDirectory + "./3"));
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void main(String[] args) {
+        String currentDirectory;
+        if (args.length > 0) {
+            currentDirectory = args[0];
+
+            try {
+                for (int i = 1; i <= NUMBER_OF_CREATED_FOLDERS; i++) {
+                    if (Files.notExists(Paths.get(currentDirectory + "/" + i))) {
+                        Files.createDirectory(Paths.get(currentDirectory + "/" + i));
+                        System.out.printf("Directory \"%s\" created\n", currentDirectory + "/" + i);
+                    } else {
+                        System.out.printf("Directory \"%s\" is already exists\n", currentDirectory + "/" + i);
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Enter parent folder in program start arguments");
         }
     }
 }
